@@ -29,6 +29,16 @@ function enableCam(event) {
   event.target.classList.add('removed');  
 
   // getUsermedia parameters to force video but not audio.
-  const constraints = {
+const constraints = {
     video: true
-  };
+    };
+    
+      // Activate the webcam stream.
+navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
+    video.srcObject = stream;
+    video.addEventListener('loadeddata', predictWebcam);
+  });
+}
+
+// Store the resulting model in the global scope of our app.
+var model = undefined;
