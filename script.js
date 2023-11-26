@@ -24,3 +24,6 @@ function enableCam(event) {
   if (!model) {
     return;
   }
+
+     // Hide the button once clicked.
+  event.target.classList.add('removed');  
