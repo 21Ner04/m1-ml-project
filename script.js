@@ -17,3 +17,10 @@ if (getUserMediaSupported()) {
 } else {
   console.warn('getUserMedia() is not supported by your browser');
 }
+
+// Enable the live webcam view and start classification.
+function enableCam(event) {
+  // Only continue if the COCO-SSD has finished loading.
+  if (!model) {
+    return;
+  }
